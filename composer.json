@@ -1,0 +1,43 @@
+{
+  "name": "api-api/structure-idnow",
+  "description": "Structure implementation for IDnow.",
+  "version": "1.0.0",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "api-api",
+    "structure",
+    "structure-idnow"
+  ],
+  "homepage": "http://awesome.ug",
+  "authors": [
+    {
+      "name": "Sven Wagener",
+      "email": "sven@awesome.ug",
+      "homepage": "http://awesome.ug",
+      "role": "Head of Development"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/api-api/structure-idnow/issues"
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
+  "autoload": {
+    "psr-4": {
+      "APIAPI\\Structure_IDnow\\": "src/Structure_IDnow/"
+    },
+    "files": [
+      "src/structure-idnow.php"
+    ]
+  },
+  "require": {
+    "api-api/core": "dev-master",
+    "api-api/authenticator-x": "dev-master",
+    "api-api/transporter-curl": "dev-master"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.7",
+    "codeclimate/php-test-reporter": "dev-master"
+  }
+}
