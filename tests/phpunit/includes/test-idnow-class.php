@@ -13,15 +13,13 @@ class IDnow_TestCase extends Structure_TestCase {
 
 	protected function setUp() {
 
-		$username = getenv( 'VIDYO_USER' );
-		$password = getenv( 'VIDYO_PASS' );
+		$api_key = getenv( 'IDNOW_API_KEY' );
 
 		$config = array(
 			'transporter'            => 'curl',
 			'idnow'                => array(
 				'authentication_data' => array(
-					'username'    => $username,
-					'password' => $password,
+					'X-API-KEY'    => $api_key
 				)
 			)
 		);
