@@ -29,6 +29,7 @@ if ( ! class_exists( 'APIAPI\Structure_IDnow\Structure_IDnow' ) ) {
 		 */
 		protected function setup() {
 			$this->title         = 'IDnow API';
+
 			$this->description   = 'Allows to access and manage the data in your IDnow account.';
 			$this->base_uri      = 'https://gateway.test.idnow.de/api/v1/{companyID}/';
 
@@ -38,8 +39,8 @@ if ( ! class_exists( 'APIAPI\Structure_IDnow\Structure_IDnow' ) ) {
 			);
 
 			$this->authenticator = 'x-account';
-
 			$this->authentication_data_defaults = array(
+				'placeholder_name' => 'companyID',
 				'header_name'      => 'API-KEY',
 			);
 
@@ -50,7 +51,7 @@ if ( ! class_exists( 'APIAPI\Structure_IDnow\Structure_IDnow' ) ) {
 						'needs_authentication' => true,
 						'request_data_type'    => 'json',
 						'params'               => array(
-							'birthday'          => array(
+							'birthday'        => array(
 								'description' => 'The user’s birthday in ISO 8601 format: YYYY-MM-DD',
 								'type'        => 'string',
 							),
@@ -90,7 +91,7 @@ if ( ! class_exists( 'APIAPI\Structure_IDnow\Structure_IDnow' ) ) {
 								'description' => 'Custom text field. Use this to pass your own IDs, tags etc. You will get this information back in the identification results',
 								'type'        => 'string',
 							),
-							'trackingid'          => array(
+							'trackingid'      => array(
 								'description' => 'Custom tracking field. Can be used to pass tracking information. You will get this information back in the identification results. Can also be set as parameter „tid“ in user frontend.',
 								'type'        => 'string',
 							),
@@ -126,7 +127,7 @@ if ( ! class_exists( 'APIAPI\Structure_IDnow\Structure_IDnow' ) ) {
 								'description' => 'The user\'s street',
 								'type'        => 'string',
 							),
-							'streetnumber'          => array(
+							'streetnumber'    => array(
 								'description' => 'The user’s street number. This field can be configured to be part of the field “street”, if you have street and number saved in one field in your database. If you wish to activate this setting please contact your technical account manager at IDnow.',
 								'type'        => 'string',
 							),

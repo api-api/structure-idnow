@@ -14,12 +14,14 @@ class IDnow_TestCase extends Structure_TestCase {
 	protected function setUp() {
 
 		$api_key = getenv( 'IDNOW_API_KEY' );
+		$company_id = getenv( 'IDNOW_COMPANY_ID' );
 
 		$config = array(
 			'transporter'            => 'curl',
 			'idnow'                => array(
 				'authentication_data' => array(
-					'X-API-KEY'    => $api_key
+					'account'    => $company_id,
+					'token'   => $api_key
 				)
 			)
 		);
