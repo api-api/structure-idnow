@@ -44,7 +44,7 @@ if ( ! class_exists( 'APIAPI\Structure_IDnow\Structure_IDnow' ) ) {
 				'header_name'      => 'API-KEY',
 			);
 
-			$this->routes['/identifications'] = array(
+			$this->routes['/identifications/(?P<transaction_number>[\\d]+)/start'] = array(
 				'methods' => array(
 					Method::POST  => array(
 						'description'          => 'Adds identification',

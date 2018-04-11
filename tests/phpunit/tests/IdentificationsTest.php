@@ -4,13 +4,14 @@ require_once dirname( dirname( __FILE__ ) ) . '/includes/bootstrap.php';
 
 class IdentificationsTests extends IDnow_TestCase {
 	public function testAdd() {
-		$request = $this->apiapi->get_request_object( 'idnow', '/identifications', 'POST' );
+		$transaction_number = time() * rand();
 
-		$request->set_param('firstname', 'test');
+		$request = $this->apiapi->get_request_object( 'idnow', '/identifications/(?P<transaction_number>[\\d]+)/start', 'POST' );
+
+		$request->set_param('transaction_number', $transaction_number );
+		$request->set_param('firstname', 'test1');
 		$response = $this->apiapi->send_request( $request );
-		$params = $response->get_params();
 
-		$this->assertEquals( 1, count( $params ) );
-		// $this->assertEquals( 'testgroup1', $params[ 0 ]['name'] );
+		$this->assertEquals( 201, $response->get_response_code() );
 	}
 }
