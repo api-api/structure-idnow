@@ -44,6 +44,31 @@ if ( ! class_exists( 'APIAPI\Structure_IDnow\Structure_IDnow' ) ) {
 				'header_name'      => 'API-KEY',
 			);
 
+			$this->routes['/login'] = array(
+				'methods' => array(
+					Method::POST  => array(
+						'request_data_type'    => 'json',
+						'description'          => 'Adds identification',
+						'needs_authentication' => true,
+						'params'            => array(
+							'apiKey'    => array(
+								'description'   => 'API Key to get token',
+								'type'          => 'string'
+							)
+						)
+					)
+				)
+			);
+
+			$this->routes['/identifications'] = array(
+				'methods' => array(
+					Method::GET  => array(
+						'description'          => 'Adds identification',
+						'needs_authentication' => true,
+					)
+				)
+			);
+
 			$this->routes['/identifications/(?P<transaction_number>[\\d]+)/start'] = array(
 				'methods' => array(
 					Method::POST  => array(
